@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* AlphaStrike Color Variables */
+    --bg-main: #020408;
+    --bg-surface: #0B1221;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+  }
+
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  
+  body {
+    @apply bg-background-main text-text-primary font-body;
+  }
+}
+
+@layer components {
+  .circuit-card {
+    @apply bg-background-surface border border-brand-primary/30 rounded-md p-6 relative overflow-hidden;
+  }
+  
+  .circuit-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-px bg-brand-primary;
+  }
+  
+  .circuit-card:hover {
+    @apply border-brand-tertiary bg-background-surface/80;
+  }
+  
+  .circuit-card:hover::before {
+    @apply shadow-glow-blue;
+  }
+  
+  .glow-button {
+    @apply bg-brand-secondary text-text-inverse font-heading font-bold py-3 px-6 rounded-sm uppercase tracking-wide;
+    @apply shadow-glow-yellow transition-all duration-200;
+  }
+  
+  .glow-button:hover {
+    @apply brightness-110 transform -translate-y-px;
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+  }
+  
+  .neon-text {
+    @apply text-brand-secondary;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+  }
+  
+  .circuit-grid {
+    background-image: 
+      linear-gradient(rgba(0, 102, 204, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 204, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  .data-font {
+    @apply font-mono;
+  }
+  
+  .glass-panel {
+    @apply bg-background-surface/80 backdrop-blur-sm border border-brand-primary/20 rounded-md;
+  }
+  
+  .power-line {
+    @apply absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-primary to-transparent;
+  }
+}
+
+
+
+img {
+  object-position: top;
+}
+
+.fixed {
+  position: fixed;
+}
