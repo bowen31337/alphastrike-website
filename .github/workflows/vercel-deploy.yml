@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 jobs:
   deploy:
@@ -29,12 +30,23 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Deploy to Vercel
+      - name: Determine deployment target
+        id: deployment
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "args=--prod" >> $GITHUB_OUTPUT
+            echo "environment=Production" >> $GITHUB_OUTPUT
+          else
+            echo "args=" >> $GITHUB_OUTPUT
+            echo "environment=Preview" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to Vercel (${{ steps.deployment.outputs.environment }})
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+          vercel-args: ${{ steps.deployment.outputs.args }}
           working-directory: ./
 
