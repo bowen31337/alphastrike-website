@@ -59,21 +59,27 @@ export function EnsembleDiagram() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           {/* Input Data */}
           <div className="text-center">
-            <div className="w-32 h-32 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-32 h-32 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-brand-primary/30">
               <div className="text-center">
                 <div className="font-mono text-sm font-bold text-brand-primary mb-2">INPUT</div>
                 <div className="text-xs text-text-secondary">
-                  Market Data<br />
+                  L2 Order Flow<br />
+                  Microstructure<br />
                   Price & Volume<br />
-                  Sentiment<br />
-                  Technical Indicators
+                  Sentiment
                 </div>
               </div>
             </div>
           </div>
 
           {/* Models */}
-          <div className="space-y-4">
+          <div className="space-y-4 relative">
+            {/* Regime Detector Overlay (Conceptually) */}
+            <div className="absolute -left-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center">
+              <div className="vertical-text text-[10px] text-brand-tertiary font-bold mb-2 uppercase tracking-widest">Regime Detector</div>
+              <div className="w-1 h-32 bg-gradient-to-b from-transparent via-brand-tertiary/50 to-transparent"></div>
+            </div>
+
             {models.map((model, index) => (
               <div key={model.id} className="relative">
                 <div 
@@ -133,14 +139,14 @@ export function EnsembleDiagram() {
 
           {/* Output */}
           <div className="text-center">
-            <div className="w-32 h-32 bg-semantic-success/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-32 h-32 bg-semantic-success/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-semantic-success/30">
               <div className="text-center">
-                <div className="font-mono text-sm font-bold text-semantic-success mb-2">OUTPUT</div>
+                <div className="font-mono text-sm font-bold text-semantic-success mb-2">EXECUTION</div>
                 <div className="text-xs text-text-secondary">
-                  Trading Signal<br />
-                  Risk Assessment<br />
-                  Position Sizing<br />
-                  Exit Strategy
+                  Adaptive Kelly<br />
+                  Trailing Stops<br />
+                  Multi-level PT<br />
+                  Slippage Opt.
                 </div>
               </div>
             </div>
@@ -155,11 +161,10 @@ export function EnsembleDiagram() {
             <Zap className="w-6 h-6 text-brand-secondary" />
           </div>
           <h3 className="font-heading font-semibold text-lg text-text-primary mb-2">
-            Reduced Overfitting
+            Dynamic Weighting
           </h3>
           <p className="text-text-secondary text-sm">
-            Multiple models working together reduce the risk of overfitting to historical data, 
-            making predictions more robust in live trading.
+            Continuous performance tracking adjusts model weights in real-time based on rolling 24h Sharpe ratios and model agreement patterns.
           </p>
         </div>
 
@@ -168,11 +173,10 @@ export function EnsembleDiagram() {
             <Brain className="w-6 h-6 text-brand-tertiary" />
           </div>
           <h3 className="font-heading font-semibold text-lg text-text-primary mb-2">
-            Regime Adaptation
+            Regime Awareness
           </h3>
           <p className="text-text-secondary text-sm">
-            The ensemble automatically adjusts model weights based on current market conditions, 
-            ensuring optimal performance across different market regimes.
+            Integrated ADX/ATR state machine detects Trending vs. Ranging markets to optimize signal thresholds and position sizing.
           </p>
         </div>
 
@@ -181,11 +185,10 @@ export function EnsembleDiagram() {
             <Target className="w-6 h-6 text-semantic-success" />
           </div>
           <h3 className="font-heading font-semibold text-lg text-text-primary mb-2">
-            Enhanced Accuracy
+            Confidence Calibration
           </h3>
           <p className="text-text-secondary text-sm">
-            By combining the strengths of different algorithms, we achieve higher prediction 
-            accuracy than any single model could provide independently.
+            Platt scaling calibrates raw model scores into true probability distributions for superior Kelly-based capital allocation.
           </p>
         </div>
       </div>

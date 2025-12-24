@@ -4,27 +4,27 @@ export function RiskManagement() {
   const riskFeatures = [
     {
       icon: Shield,
-      title: 'Kill Switches',
-      description: 'Automatic position closure when losses exceed predefined thresholds',
-      features: ['Real-time monitoring', 'Instant execution', 'Configurable limits'],
+      title: 'Adaptive Sizing',
+      description: 'Dynamic Kelly fraction adjustment (0.3-0.7) based on rolling performance',
+      features: ['Win-rate calibration', 'Drawdown-aware sizing', 'Confidence-based weighting'],
     },
     {
       icon: AlertTriangle,
-      title: 'Pre-Trade Checks',
-      description: 'Validation of market conditions before executing any trades',
-      features: ['Volatility screening', 'Liquidity validation', 'Spread analysis'],
+      title: 'Correlation Control',
+      description: 'Real-time monitoring of pair correlations to manage portfolio exposure',
+      features: ['BTC/ETH/LTC grouping', 'Combined exposure limits', 'Dynamic pair weighting'],
     },
     {
       icon: Activity,
-      title: 'Volatility Control',
-      description: 'Dynamic position sizing based on current market volatility',
-      features: ['ATR-based sizing', 'Correlation monitoring', 'Exposure limits'],
+      title: 'Exit Management',
+      description: 'Sophisticated exit logic using ATR-based trailing stops and multi-level targets',
+      features: ['ATR initial stop (2x)', 'Trail stop (1.5x)', 'Profit lock-in logic'],
     },
     {
       icon: Target,
-      title: 'Risk Scoring',
-      description: 'Continuous assessment of portfolio risk levels',
-      features: ['Real-time scoring', 'Historical backtesting', 'Stress testing'],
+      title: 'Regime Adaptation',
+      description: 'Strategy-wide adaptation based on detected market regimes (trending/ranging)',
+      features: ['ADX/ATR classification', 'Threshold optimization', 'Volatility screening'],
     },
   ];
 

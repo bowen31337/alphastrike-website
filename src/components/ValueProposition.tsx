@@ -29,17 +29,17 @@ export function ValueProposition() {
     {
       icon: Network,
       title: 'Ensemble Superiority',
-      description: 'Combining multiple AI models reduces overfitting and improves prediction accuracy across all market conditions.',
+      description: 'Combining multiple AI models reduces overfitting and improves prediction accuracy through dynamic performance-based weighting.',
     },
     {
       icon: Shield,
-      title: 'Risk Management',
-      description: 'Built-in kill switches, pre-trade checks, and volatility controls protect your capital in real-time.',
+      title: 'Advanced Risk Controls',
+      description: 'ATR-based trailing stops, multi-level profit targets, and correlation-aware position limits protect your capital.',
     },
     {
       icon: Cpu,
-      title: 'Dynamic Adaptation',
-      description: 'Our AI continuously evaluates market regimes and adjusts model weights for optimal performance.',
+      title: 'Market Regime Detection',
+      description: 'Our AI classifies market states (trending/ranging) to dynamically adapt strategy parameters and model confidence.',
     },
   ];
 

@@ -65,27 +65,17 @@ export function PerformancePage() {
             <div className="circuit-card text-center">
               <TrendingUp className="w-8 h-8 text-semantic-success mx-auto mb-4" />
               <div className="font-mono text-3xl font-bold text-semantic-success mb-2">
-                +23.4%
+                +31.8%
               </div>
               <div className="text-text-secondary">
-                Average Annual Return
+                Target Annual Return
               </div>
             </div>
 
             <div className="circuit-card text-center">
               <Target className="w-8 h-8 text-brand-tertiary mx-auto mb-4" />
               <div className="font-mono text-3xl font-bold text-brand-tertiary mb-2">
-                91.7%
-              </div>
-              <div className="text-text-secondary">
-                Prediction Accuracy
-              </div>
-            </div>
-
-            <div className="circuit-card text-center">
-              <BarChart3 className="w-8 h-8 text-brand-primary mx-auto mb-4" />
-              <div className="font-mono text-3xl font-bold text-brand-primary mb-2">
-                1.34
+                2.65
               </div>
               <div className="text-text-secondary">
                 Sharpe Ratio
@@ -93,9 +83,19 @@ export function PerformancePage() {
             </div>
 
             <div className="circuit-card text-center">
+              <BarChart3 className="w-8 h-8 text-brand-primary mx-auto mb-4" />
+              <div className="font-mono text-3xl font-bold text-brand-primary mb-2">
+                2.15
+              </div>
+              <div className="text-text-secondary">
+                Profit Factor
+              </div>
+            </div>
+
+            <div className="circuit-card text-center">
               <Activity className="w-8 h-8 text-brand-secondary mx-auto mb-4" />
               <div className="font-mono text-3xl font-bold text-brand-secondary mb-2">
-                12.3%
+                8.4%
               </div>
               <div className="text-text-secondary">
                 Maximum Drawdown
