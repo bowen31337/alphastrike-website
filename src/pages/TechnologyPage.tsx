@@ -2,6 +2,7 @@ import { EnsembleDiagram } from '../components/EnsembleDiagram';
 import { AgentSelection } from '../components/AgentSelection';
 import { RiskManagement } from '../components/RiskManagement';
 import { Architecture } from '../components/Architecture';
+import { AdaptiveLeverage } from '../components/AdaptiveLeverage';
 
 export function TechnologyPage() {
   return (
@@ -15,12 +16,13 @@ export function TechnologyPage() {
             <span className="neon-text">ML Ensemble Technology</span>
           </h1>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-            Discover how AlphaStrike's sophisticated machine learning ensemble combines XGBoost, 
+            Discover how AlphaStrike's sophisticated machine learning ensemble combines XGBoost,
             LightGBM, and LSTM to deliver superior trading performance through dynamic adaptation.
           </p>
         </section>
 
         <EnsembleDiagram />
+        <AdaptiveLeverage />
         <AgentSelection />
         <RiskManagement />
         <Architecture />
