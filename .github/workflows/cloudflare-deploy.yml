@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -42,25 +42,16 @@ jobs:
         run: pnpm install --prefer-offline
 
       - name: Build project
-        run: pnpm run build
-
-      - name: Determine deployment target
-        id: deployment
         run: |
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            echo "args=--prod" >> $GITHUB_OUTPUT
-            echo "environment=Production" >> $GITHUB_OUTPUT
+            pnpm run build:prod
           else
-            echo "args=" >> $GITHUB_OUTPUT
-            echo "environment=Preview" >> $GITHUB_OUTPUT
+            pnpm run build
           fi
 
-      - name: Deploy to Vercel (${{ steps.deployment.outputs.environment }})
-        uses: amondnet/vercel-action@v25
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: ${{ steps.deployment.outputs.args }}
-          working-directory: ./
-
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/ --project-name alphastrike-website --branch ${{ github.ref_name }}
